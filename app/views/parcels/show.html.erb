@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @parcel.address %>
+</p>
+
+<p>
+  <strong>Current year value:</strong>
+  <%= @parcel.current_year_value %>
+</p>
+
+<p>
+  <strong>Previous year value:</strong>
+  <%= @parcel.previous_year_value %>
+</p>
+
+<p>
+  <strong>Total taxes:</strong>
+  <%= @parcel.total_taxes %>
+</p>
+
+<%= link_to 'Edit', edit_parcel_path(@parcel) %> |
+<%= link_to 'Back', parcels_path %>

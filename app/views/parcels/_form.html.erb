@@ -1,0 +1,37 @@
+<%= form_for(parcel) do |f| %>
+  <% if parcel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parcel.errors.count, "error") %> prohibited this parcel from being saved:</h2>
+
+      <ul>
+      <% parcel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_year_value %>
+    <%= f.text_field :current_year_value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :previous_year_value %>
+    <%= f.text_field :previous_year_value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_taxes %>
+    <%= f.text_field :total_taxes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
