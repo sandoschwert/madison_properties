@@ -3,6 +3,9 @@ class DataImportController < ApplicationController
   end
 
   def create
-    Parcel.import(params[:file])
+    if params[:file]
+      Parcel.import(params[:file])
+    end
+    redirect_to root_url
   end
 end

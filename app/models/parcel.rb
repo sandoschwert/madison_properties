@@ -10,9 +10,9 @@ class Parcel < ApplicationRecord
 
       parcel = self.new
       parcel.address = parcel_hash["Address"]
-      parcel.current_year_value = remove_dollar_symbol_and_convert_to_float(parcel_hash["Current Year Total Value"])
-      parcel.previous_year_value = remove_dollar_symbol_and_convert_to_float(parcel_hash["Previous Year Total Value"])
-      parcel.total_taxes = remove_dollar_symbol_and_convert_to_float(parcel_hash["Total Taxes"])
+      parcel.current_year_value = cleanup_dollar_values_from_csv(parcel_hash["Current Year Total Value"])
+      parcel.previous_year_value = cleanup_dollar_values_from_csv(parcel_hash["Previous Year Total Value"])
+      parcel.total_taxes = cleanup_dollar_values_from_csv(parcel_hash["Total Taxes"])
 
       parcel.save
     end
@@ -22,10 +22,7 @@ class Parcel < ApplicationRecord
     self.address + ", Madison, WI"
   end
 
-
-  private
-
-  def self.remove_dollar_symbol_and_convert_to_float(value)
-    value.gsub!('$','').to_f
+  def self.cleanup_dollar_values_from_csv(value)
+    value.to_s.gsub('$','').to_f
   end
 end
