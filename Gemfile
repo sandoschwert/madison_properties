@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'geocoder'
 gem 'will_paginate'
+gem 'money'
 
 group :development, :test do
   gem 'byebug', platform: :mri
