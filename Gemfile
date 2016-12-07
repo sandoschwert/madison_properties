@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'geocoder'
 gem 'money'
 gem 'figaro'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -26,3 +27,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv', '~> 2.0', require: false
+
+group :production do
+  gem 'mysql2', '~> 0.3.13'
+end

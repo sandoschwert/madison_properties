@@ -4,7 +4,7 @@ class ParcelsController < ApplicationController
   # GET /parcels
   # GET /parcels.json
   def index
-    @parcels = Parcel.all
+    @parcels = Parcel.all.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /parcels/1

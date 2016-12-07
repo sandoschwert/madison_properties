@@ -23,22 +23,16 @@
         </tr>
       </thead>
 
-      <tbody>
-        <% @parcels.each do |parcel| %>
-          <tr>
-            <td><%= parcel.address %></td>
-            <td><%= display_us_dollar(parcel.current_year_value) %></td>
-            <td><%= display_us_dollar(parcel.previous_year_value) %></td>
-            <td><%= display_us_dollar(parcel.total_taxes) %></td>
-            <td><%= link_to 'Show', parcel %></td>
-            <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
-            <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
+      <tbody id="parcels">
       </tbody>
     </table>
   </div>
 </div>
+
+<img src='http://www.fostersystems.com/ccdata/images/spinner.gif' id='next_page_spinner' />
+
 <br>
 
 <%= link_to 'New Parcel', new_parcel_path %>
+
+<%= javascript_include_tag 'pagination' %>
